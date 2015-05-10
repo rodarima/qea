@@ -183,9 +183,9 @@ Introducción
 \begin_layout Standard
 Los Algoritmos Evolutivos son un método de resolución de problemas ampliamente
  desarrollado desde la década de 1980 hasta la actualidad.
- Utilizan los principios de la evolución biológica (selección natural, mutación,
- recombinación genética, etc.) para operar sobre un conjunto de individuos
- que representa distintas soluciones a un problema determinado.
+ Utilizan los principios de la evolución biológica para operar sobre un
+ conjunto de individuos que representa distintas soluciones a un problema
+ determinado.
  Entre sus múltiples variantes encontramos una relativamente reciente, que
  toma algunos conceptos del campo emergente de la Computación Cuántica para
  modelar el individuo y la manera en que este evoluciona.
@@ -193,7 +193,7 @@ Los Algoritmos Evolutivos son un método de resolución de problemas ampliamente
  un algoritmo clásico, pensado para ser ejecutado en un computador clásico,
  pero que utiliza conceptos de Computación Cuántica como son el 
 \emph on
-qubit
+qbit
 \emph default
  o la superposición de estados.
  Por eso se les denomina 
@@ -208,7 +208,79 @@ Algoritmos Evolutivos inspirados en Computación Cuántica
 \end_layout
 
 \begin_layout Subsection
-Algoritmos Evolutivos
+Computación Evolutiva
+\end_layout
+
+\begin_layout Standard
+La Computación Evolutiva es una rama de la Inteligencia Artificial que trata
+ principalmente problemas de optimización.
+ Surge con la idea de aplicar los principios de la evolución biológica a
+ la resolución de problemas complejos.
+ En particular, se basa en los conceptos de 
+\emph on
+selección natural, recombinación genética 
+\emph default
+y 
+\emph on
+mutación.
+ 
+\emph default
+Las primeras aproximaciones datan de los años 50, pero no se consagra como
+ disciplina hasta la década de los 70.
+ Desde entonces se ha realizado mucha investigación en este campo, y encontramos
+ innumerables aplicaciones en todo tipo de contextos, no sólo de carácter
+ científico-técnico, sino también artístico, económico o social.
+\end_layout
+
+\begin_layout Standard
+Existen tres grandes subcampos de la Computación Evolutiva, entre muchos
+ otros de distinta relevancia:
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Algoritmos Genéticos
+\emph default
+.
+ Modelan las posibles soluciones de un problema como individuos de una población
+, y las distintas variables como su información genética.
+ Funcionan de forma iterativa, simulando las distintas generaciones de la
+ población, y aplicando los operadores genéticos de selección, cruce y mutación
+ de manera estocástica.
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Programación Genética
+\emph default
+.
+ Similar a los Algoritmos Genéticos, pero en este caso las soluciones son
+ programas, y su calidad se determina en función de su capacidad para resolver
+ un problema computacional.
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Estrategias Evolutivas
+\emph default
+.
+ Utilizan variables adicionales para controlar el proceso de evolución de
+ forma dinámica.
+\end_layout
+
+\begin_layout Standard
+Los algoritmos evolutivos son adecuados para problemas en los que el espacio
+ de búsqueda es muy grande y no hay una solución analítica conocida.
+ Esto los hace especialmente adecuados para ciertos problemas de Robótica,
+ como son el diseño de morfologías o de controladores.
+ Sin embargo, presentan ciertos inconvenientes.
+ En primer lugar, no garantizan que se encuentre el óptimo global.
+ Y en caso de alcanzar a una solución aceptable, resulta muy difícil (o
+ casi imposible, en algunos casos) averiguar cómo y por qué se ha llegado
+ hasta esa solución.
 \end_layout
 
 \begin_layout Subsection
@@ -223,7 +295,7 @@ La computación cuántica es un nuevo paradigma de computación.
 
 \begin_layout Standard
 El objetivo que busca la computación cuántica es el de hacer uso de las
- propiedades inherentes de la naturaleza para realizar computaciones.
+ propiedades inherentes a la naturaleza para realizar computaciones.
  De la misma forma que los ordenadores clásicos que acostumbramos a emplear,
  existe una analogía cuántica; el ordenador cuántico.
  Los bits se convierten en qbits.
@@ -361,8 +433,14 @@ El algoritmo
 \end_layout
 
 \begin_layout Standard
-Kuk-Hyun Han y Jong-Hwan Kim proponen el siguiente esquema general para
- QEA:
+Kuk-Hyun Han y Jong-Hwan Kim 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Han2003,Han2002_2,Han2002"
+
+\end_inset
+
+ proponen el siguiente esquema general para QEA:
 \end_layout
 
 \begin_layout Standard
@@ -644,8 +722,15 @@ Conclusiones
 
 \end_layout
 
-\begin_layout Section
-Referencias
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "qea"
+options "bibtotoc,plain"
+
+\end_inset
+
+
 \end_layout
 
 \end_body
