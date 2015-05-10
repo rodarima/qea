@@ -27,7 +27,7 @@
 \paperfontsize 12
 \spacing single
 \use_hyperref false
-\papersize default
+\papersize a4paper
 \use_geometry true
 \use_package amsmath 1
 \use_package amssymb 1
@@ -187,8 +187,8 @@ Los Algoritmos Evolutivos son un método de resolución de problemas ampliamente
  recombinación genética, etc.) para operar sobre un conjunto de individuos
  que representa distintas soluciones a un problema determinado.
  Entre sus múltiples variantes encontramos una relativamente reciente, que
- toma algunos conceptos de el campo emergente de la Computación Cuántica
- para modelar el individuo y la manera en que este evoluciona.
+ toma algunos conceptos del campo emergente de la Computación Cuántica para
+ modelar el individuo y la manera en que este evoluciona.
  Hay que tener presente que no se trata de un algoritmo cuántico, sino de
  un algoritmo clásico, pensado para ser ejecutado en un computador clásico,
  pero que utiliza conceptos de Computación Cuántica como son el 
@@ -216,6 +216,129 @@ Computación Cuántica
 \end_layout
 
 \begin_layout Standard
+La computación cuántica es un nuevo paradigma de computación.
+ Emplea las propiedades especiales de la materia que suceden en una escala
+ más pequeña.
+\end_layout
+
+\begin_layout Standard
+El objetivo que busca la computación cuántica es el de hacer uso de las
+ propiedades inherentes de la naturaleza para realizar computaciones.
+ De la misma forma que los ordenadores clásicos que acostumbramos a emplear,
+ existe una analogía cuántica; el ordenador cuántico.
+ Los bits se convierten en qbits.
+ La representación del estado de un qbit 
+\begin_inset Formula $\left|\psi\right\rangle $
+\end_inset
+
+ es:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left|\psi\right\rangle =\left(\begin{array}{c}
+\alpha\\
+\beta
+\end{array}\right)=\alpha\left(\begin{array}{c}
+1\\
+0
+\end{array}\right)+\beta\left(\begin{array}{c}
+0\\
+1
+\end{array}\right)=\alpha\left|0\right\rangle +\beta\left|1\right\rangle 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Donde 
+\begin_inset Formula $\alpha,\beta\in\mathbb{C}$
+\end_inset
+
+ y también 
+\begin_inset Formula $\left|\alpha\right|^{2}+\left|\beta\right|^{2}=1$
+\end_inset
+
+.
+ La medición de un qbit resultará en 0 o bien en 1.
+ De forma que la probabilidad de que resulte 0 es 
+\begin_inset Formula $|\alpha|^{2}$
+\end_inset
+
+ y de que resulte 1 es 
+\begin_inset Formula $|\beta|^{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Una ventaja frente a la computación clásica es la superposición de estados.
+ Para un sistema 
+\begin_inset Formula $\left|\psi\right\rangle $
+\end_inset
+
+ de n qbits:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left|\psi\right\rangle =\bigotimes^{n}\left(\begin{array}{c}
+\alpha_{i}\\
+\beta_{i}
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+No es necesario que cada qbit individual cumpla 
+\begin_inset Formula $\left|\alpha_{i}\right|^{2}+\left|\beta_{i}\right|^{2}=1$
+\end_inset
+
+, si no que 
+\begin_inset Formula 
+\[
+\sum^{n}\left|\alpha_{i}\right|^{2}+\sum^{n}\left|\beta_{i}\right|^{2}=1
+\]
+
+\end_inset
+
+De forma que se pueden construir estados especiales, que no son posibles
+ en los bits clásicos, por ejemplo el estado de Bell, denominado 
+\begin_inset Formula $\left|B_{00}\right\rangle $
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left|B_{00}\right\rangle =\frac{1}{\sqrt{2}}\left(\left|00\right\rangle +\left|11\right\rangle \right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La probabilidad de que se obtenga como resultado de una medición 01 o 10,
+ es nula.
+ Sin embargo, la probabilidad de obtener 00 o bien 11 es 
+\begin_inset Formula $\frac{1}{2}$
+\end_inset
+
+.
 \begin_inset Newpage pagebreak
 \end_inset
 
@@ -238,6 +361,261 @@ El algoritmo
 \end_layout
 
 \begin_layout Standard
+Kuk-Hyun Han y Jong-Hwan Kim proponen el siguiente esquema general para
+ QEA:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset listings
+lstparams "basicstyle={\ttfamily},tabsize=4"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+procedure QEA
+\end_layout
+
+\begin_layout Plain Layout
+
+begin
+\end_layout
+
+\begin_layout Plain Layout
+
+	t = 0
+\end_layout
+
+\begin_layout Plain Layout
+
+1)  initialize Q(t)
+\end_layout
+
+\begin_layout Plain Layout
+
+2)  make P(t) by observing the states of Q(t)
+\end_layout
+
+\begin_layout Plain Layout
+
+3)  evaluate P(t)
+\end_layout
+
+\begin_layout Plain Layout
+
+4)  store the best solutions among P(t) into b
+\end_layout
+
+\begin_layout Plain Layout
+
+	while (not termination-condition) do
+\end_layout
+
+\begin_layout Plain Layout
+
+	begin
+\end_layout
+
+\begin_layout Plain Layout
+
+		t = t + 1
+\end_layout
+
+\begin_layout Plain Layout
+
+5)  	make P(t) by observing the states of Q(t-1)
+\end_layout
+
+\begin_layout Plain Layout
+
+6)  	evaluate P(t)
+\end_layout
+
+\begin_layout Plain Layout
+
+7)  	update Q(t) using Q-gates
+\end_layout
+
+\begin_layout Plain Layout
+
+8)  	store the best solutions among P(t) into b
+\end_layout
+
+\begin_layout Plain Layout
+
+	end
+\end_layout
+
+\begin_layout Plain Layout
+
+end
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Esquema del algoritmo QEA
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El vector 
+\begin_inset Formula $Q(t)$
+\end_inset
+
+ representa la población de individuos en la generación 
+\begin_inset Formula $t$
+\end_inset
+
+.
+ Cada individuo tiene un cromosoma 
+\begin_inset Formula $\mathbf{q}$
+\end_inset
+
+, que está constituído de un conjunto de qbits 
+\begin_inset Formula $q_{j}$
+\end_inset
+
+.
+ El algoritmo no es un algoritmo cuántico, si no que se ejecuta en un ordenador
+ clásico, por lo que es posible determinar el estado de un qbit, sin que
+ este se colapse.
+ De esta forma, del vector 
+\begin_inset Formula $\mathbf{q}$
+\end_inset
+
+ es posible realizar una medición en el vector binario 
+\begin_inset Formula $\mathbf{x}$
+\end_inset
+
+, sin modificar 
+\begin_inset Formula $\mathbf{q}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+1.
+ Los qbits de los cromosomas se inicializan con valores de igual probabilidad
+ para todos los estados.
+\end_layout
+
+\begin_layout Standard
+2.
+ Para cada individuo, se realiza una medición de los qbits del cromosoma
+ q.
+ En el vector x se almacena el estado del cromosoma colapsado, que formará
+ la solución.
+ 
+\end_layout
+
+\begin_layout Standard
+3.
+ Evalúa el resultado de cada individuo 
+\begin_inset Formula $\mathbf{x}$
+\end_inset
+
+ empleando una función de 
+\emph on
+fitness
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+4.
+ Selecciona las mejores soluciones tras evaluar cada x, y se almacenan en
+ b.
+\end_layout
+
+\begin_layout Standard
+A continuación comienza un bucle que se repetirá hasta que lo indique la
+ condición de parada.
+\end_layout
+
+\begin_layout Standard
+5.
+ Repite el procedimiento del paso 2, que consiste en medir el estado de
+ los cromosomas en x.
+ Sin alterar el estado del cromosoma.
+\end_layout
+
+\begin_layout Standard
+6.
+ Evalúa x para cada individuo.
+\end_layout
+
+\begin_layout Standard
+7.
+ Realiza una modificación en el valor de los qbits de los cromosomas de
+ cada individuo.
+ Consiste en una trasformación aplicando una puerta cuántica de rotación.
+ Se acerca el valor de cada qbit a 
+\begin_inset Formula $\left|0\right\rangle $
+\end_inset
+
+ o a 
+\begin_inset Formula $\left|1\right\rangle $
+\end_inset
+
+, aumentando o reduciendo el valor de 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ y de 
+\begin_inset Formula $\beta$
+\end_inset
+
+.
+ De esta forma, cada vez existen más probabilidades de que el valor resultante
+ de medir, proporcione un resultado más acercado al indicado por la función
+ de 
+\emph on
+fitness
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+8.
+ Almacena las mejores soluciones x en b.
+ Vuelve al paso 5.
+\end_layout
+
+\begin_layout Standard
+Al finalizar, el vector b contendrá las soluciones del problema, en un vector
+ binario.
+\end_layout
+
+\begin_layout Standard
+El algoritmo no emplea las operaciones habituales de cruce ni de mutación,
+ para producir la siguiente generación de individuos.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Newpage pagebreak
 \end_inset
 
@@ -256,7 +634,7 @@ Aplicaciones
 \end_layout
 
 \begin_layout Section
-Conclusión
+Conclusiones
 \end_layout
 
 \begin_layout Standard
