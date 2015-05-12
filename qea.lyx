@@ -429,18 +429,78 @@ Estado del arte
 \end_layout
 
 \begin_layout Section
-El algoritmo
+El concepto de QEA
 \end_layout
 
 \begin_layout Standard
-Kuk-Hyun Han y Jong-Hwan Kim 
+A.
+ Narayanan y M.
+ Moore 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Narayanan1996"
+
+\end_inset
+
+ fueron los primeros en proponer la idea de los QEA en 1996.
+ Sin embargo, se utilizará el trabajo de Kuk-Hyun Han y Jong-Hwan Kim 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Han2003,Han2002_2,Han2002"
 
 \end_inset
 
- proponen el siguiente esquema general para QEA:
+ como guía para exponer el algoritmo, por el mayor nivel de detalle que
+ hay en su trabajo.
+ Ellos proponen el siguiente esquema general para QEA.
+\end_layout
+
+\begin_layout Subsection
+Representación
+\end_layout
+
+\begin_layout Standard
+Un individuo posee un solo cromosoma que se modela como un vector de qbits:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left[\begin{pmatrix}\alpha_{1}\\
+\beta_{1}
+\end{pmatrix},\begin{pmatrix}\alpha_{2}\\
+\beta_{2}
+\end{pmatrix},...,\begin{pmatrix}\alpha_{m}\\
+\beta_{m}
+\end{pmatrix}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+donde 
+\begin_inset Formula $\left|\alpha_{i}\right|^{2}+\left|\beta_{i}\right|^{2}=1$
+\end_inset
+
+ para 
+\begin_inset Formula $i=1,2,...,m$
+\end_inset
+
+.
+ Se utilizan los valores de probabilidad de cada qbit para simular el concepto
+ de superposición de estados, de forma que un individuo contiene información
+ acerca de todas las soluciones simultáneamente.
+ Lo que se pretende con esta representación es aumentar la variabilidad
+ genética en la población, ya que la información transmitida a lo largo
+ de las generaciones son valores de probabilidad de todas las secuencias
+ posibles, y no secuencias concretas.
+\end_layout
+
+\begin_layout Subsection
+Algoritmo
 \end_layout
 
 \begin_layout Standard
@@ -488,7 +548,7 @@ begin
 
 \begin_layout Plain Layout
 
-4)  store the best solutions among P(t) into b
+4)  store the best solutions among P(t) into B(t)
 \end_layout
 
 \begin_layout Plain Layout
@@ -523,7 +583,12 @@ begin
 
 \begin_layout Plain Layout
 
-8)  	store the best solutions among P(t) into b
+8)  	store the best solutions among B(t-1) and P(t) into B(t)
+\end_layout
+
+\begin_layout Plain Layout
+
+9)  	store the best solution b among B(t)
 \end_layout
 
 \begin_layout Plain Layout
@@ -559,33 +624,58 @@ Esquema del algoritmo QEA
 \end_layout
 
 \begin_layout Standard
-El vector 
-\begin_inset Formula $Q(t)$
+\begin_inset Formula $Q(t)=\left\{ q_{1}^{t},q_{2}^{t},...,q_{n}^{t}\right\} $
 \end_inset
 
- representa la población de individuos en la generación 
+ es la población en el instante 
 \begin_inset Formula $t$
 \end_inset
 
 .
- Cada individuo tiene un cromosoma 
-\begin_inset Formula $\mathbf{q}$
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $P(t)=\left\{ x_{1}^{t},x_{2}^{t},...,x_{n}^{t}\right\} $
 \end_inset
 
-, que está constituído de un conjunto de qbits 
-\begin_inset Formula $q_{j}$
+ es un conjunto de soluciones en el instante 
+\begin_inset Formula $t$
+\end_inset
+
+, resultante de efectuar una medición en cada individuo de 
+\begin_inset Formula $Q(t)$
 \end_inset
 
 .
- El algoritmo no es un algoritmo cuántico, si no que se ejecuta en un ordenador
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $B(t)=\left\{ b_{1}^{t},b_{2}^{t},...,b_{n}^{t}\right\} $
+\end_inset
+
+ es el conjunto de mejores soluciones obtenidas hasta el instante 
+\begin_inset Formula $t$
+\end_inset
+
+.
+ 
+\begin_inset Formula $\mathbf{b}$
+\end_inset
+
+ es la mejor solución global.
+\end_layout
+
+\begin_layout Standard
+El algoritmo no es un algoritmo cuántico, si no que se ejecuta en un ordenador
  clásico, por lo que es posible determinar el estado de un qbit, sin que
  este se colapse.
- De esta forma, del vector 
-\begin_inset Formula $\mathbf{q}$
+ De esta forma, de un vector de qbits 
+\begin_inset Formula $\mathbf{q}\in Q(t)$
 \end_inset
 
  es posible realizar una medición en el vector binario 
-\begin_inset Formula $\mathbf{x}$
+\begin_inset Formula $\mathbf{x}\in P(t)$
 \end_inset
 
 , sin modificar 
@@ -603,17 +693,27 @@ El vector
 
 \begin_layout Standard
 2.
- Para cada individuo, se realiza una medición de los qbits del cromosoma
- q.
- En el vector x se almacena el estado del cromosoma colapsado, que formará
- la solución.
+ Para cada individuo 
+\begin_inset Formula $j=1,2,...,n$
+\end_inset
+
+, se realiza una medición de los qbits del cromosoma 
+\begin_inset Formula $\mathbf{q_{j}}$
+\end_inset
+
+.
+ En el vector 
+\begin_inset Formula $\mathbf{x_{j}}$
+\end_inset
+
+ se almacena el estado del cromosoma colapsado, que formará la solución.
  
 \end_layout
 
 \begin_layout Standard
 3.
  Evalúa el resultado de cada individuo 
-\begin_inset Formula $\mathbf{x}$
+\begin_inset Formula $\mathbf{x_{j}}$
 \end_inset
 
  empleando una función de 
@@ -625,8 +725,25 @@ fitness
 
 \begin_layout Standard
 4.
- Selecciona las mejores soluciones tras evaluar cada x, y se almacenan en
- b.
+ Selecciona las mejores soluciones tras evaluar cada 
+\begin_inset Formula $\mathbf{x_{j}}$
+\end_inset
+
+, y se almacenan en 
+\begin_inset Formula $B(t)$
+\end_inset
+
+.
+ Obviamente, 
+\begin_inset Formula $B(t)=P(t)$
+\end_inset
+
+ cuando 
+\begin_inset Formula $t=0$
+\end_inset
+
+.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -637,19 +754,34 @@ A continuación comienza un bucle que se repetirá hasta que lo indique la
 \begin_layout Standard
 5.
  Repite el procedimiento del paso 2, que consiste en medir el estado de
- los cromosomas en x.
+ los cromosomas de 
+\begin_inset Formula $Q(t-1)$
+\end_inset
+
+ en 
+\begin_inset Formula $P(t)$
+\end_inset
+
+.
  Sin alterar el estado del cromosoma.
 \end_layout
 
 \begin_layout Standard
 6.
- Evalúa x para cada individuo.
+ Evalúa 
+\begin_inset Formula $\mathbf{x_{j}}$
+\end_inset
+
+ para cada 
+\begin_inset Formula $j=1,2,...,n$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
 7.
- Realiza una modificación en el valor de los qbits de los cromosomas de
- cada individuo.
+ Realiza una modificación en el valor de los qbits de cada individuo.
  Consiste en una trasformación aplicando una puerta cuántica de rotación.
  Se acerca el valor de cada qbit a 
 \begin_inset Formula $\left|0\right\rangle $
@@ -667,9 +799,13 @@ A continuación comienza un bucle que se repetirá hasta que lo indique la
 \begin_inset Formula $\beta$
 \end_inset
 
-.
+ en función de la variación del 
+\emph on
+fitness 
+\emph default
+con respecto al mejor actual.
  De esta forma, cada vez existen más probabilidades de que el valor resultante
- de medir, proporcione un resultado más acercado al indicado por la función
+ de medir proporcione un resultado más acercado al indicado por la función
  de 
 \emph on
 fitness
@@ -679,18 +815,46 @@ fitness
 
 \begin_layout Standard
 8.
- Almacena las mejores soluciones x en b.
+ Almacena las mejores soluciones de entre 
+\begin_inset Formula $B(t-1)$
+\end_inset
+
+ y 
+\begin_inset Formula $P(t)$
+\end_inset
+
+ en 
+\begin_inset Formula $B(t)$
+\end_inset
+
+.
  Vuelve al paso 5.
 \end_layout
 
 \begin_layout Standard
-Al finalizar, el vector b contendrá las soluciones del problema, en un vector
- binario.
+Al finalizar, el vector 
+\begin_inset Formula $\mathbf{b}$
+\end_inset
+
+ contendrá la mejor solución alcanzada, en forma de vector binario.
 \end_layout
 
 \begin_layout Standard
-El algoritmo no emplea las operaciones habituales de cruce ni de mutación,
- para producir la siguiente generación de individuos.
+El algoritmo propuesto por Han 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Han2003,Han2002_2,Han2002"
+
+\end_inset
+
+ no emplea las operaciones habituales de cruce ni de mutación para producir
+ la siguiente generación de individuos.
+ Sin embargo, otras publicaciones sí hacen uso de ellos (citar autores).
+ 
+\end_layout
+
+\begin_layout Subsection
+Rendimiento
 \end_layout
 
 \begin_layout Standard
