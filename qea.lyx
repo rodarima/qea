@@ -360,7 +360,7 @@ Donde
 \end_layout
 
 \begin_layout Standard
-Una ventaja frente a la computación clásica es la superposición de estados.
+Una ventaja frente a la computación clásica es el entrelazamiento de estados.
  Para un sistema 
 \begin_inset Formula $\left|\psi\right\rangle $
 \end_inset
@@ -493,12 +493,9 @@ Desde su primera aparición en 1996, los QEA han sido objeto de estudio de
  una línea de investigación especialmente popular.
  Después de más de una década, su desarrollo no parece avanzar demasiado,
  y las novedades consisten solamente en pequeñas mejoras del algoritmo original.
- Además, apenas se ha llevado a la práctica en unos pocos problemas cuya
- finalidad no fuese mero 
-\emph on
-benchmarking 
-\emph default
-del algoritmo.
+ En cualquier caso, se ha llevado a la práctica en numerosos problemas reales
+ con aparente éxito, normalmente mejorando los resultados obtenidos por
+ técnicas evolutivas tradicionales.
 \end_layout
 
 \begin_layout Standard
@@ -902,6 +899,28 @@ Al finalizar, el vector
 \end_layout
 
 \begin_layout Standard
+Estableciendo una correspondencia con los términos biológicos, la población
+ en forma de qbits 
+\begin_inset Formula $Q(t)$
+\end_inset
+
+ equivaldría al 
+\emph on
+genotipo, 
+\emph default
+y la forma binaria 
+\begin_inset Formula $P(t)$
+\end_inset
+
+ al 
+\emph on
+fenotipo.
+
+\emph default
+ 
+\end_layout
+
+\begin_layout Standard
 El algoritmo propuesto por Han 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -935,11 +954,19 @@ key "Han2002"
 \emph on
 migración, 
 \emph default
-que se define como el proceso de copiar 
+que se define como el proceso de copiar un 
 \begin_inset Formula $\mathbf{b_{j}^{t}}$
 \end_inset
 
- en .
+ en otros elementos de 
+\begin_inset Formula $B(t)$
+\end_inset
+
+ con un valor de 
+\emph on
+fitness 
+\emph default
+inferior.
  Nótese que el operador de migración se aplica sobre el conjunto de mejores
  soluciones, y no sobre el conjunto de individuos.
  De todas formas, una migración en la generación 
@@ -1137,6 +1164,72 @@ Zhiyong Li et.
 
 \begin_layout Section
 Conclusiones
+\end_layout
+
+\begin_layout Standard
+Los Algoritmos Evolutivos inspirados en Computación Cuántica son una nueva
+ vertiente de la Computación Evolutiva que constituye una alternativa viable
+ a las técnicas tradicionales.
+ No se pone en duda su eficacia ni su eficiencia a la hora de resolver problemas.
+ Lo que sí es cuestionable es su grado de 
+\begin_inset Quotes fld
+\end_inset
+
+inspiración
+\begin_inset Quotes frd
+\end_inset
+
+ en los conceptos de la cuántica.
+ 
+\end_layout
+
+\begin_layout Standard
+El QEA utiliza números reales para representar los qbits, desechando por
+ completo la parte compleja.
+ Esto implica que la puerta cuántica aplicada en el paso 7 del algoritmo
+ sólo realiza rotaciones con 1 grado de libertad, cuando las operaciones
+ cuánticas sobre qbits en estados puros permiten hasta 2 grados de libertad.
+ Tampoco se aprovecha una de las propiedades más interesantes de la información
+ cuántica, que es el entrelazamiento de qbits que se expone en la sección
+ 1.2.
+ En QEA, los qbits siempre se tratan individualmente, sujetos a la restricción
+ ya mencionada que establece
+\begin_inset Formula $\left|\alpha_{i}\right|^{2}+\left|\beta_{i}\right|^{2}=1$
+\end_inset
+
+.
+ Por todo esto, la clase de algoritmos aquí expuesta se parece más a un
+ método probabilista clásico que a uno cuántico.
+ Los elementos denominados como 
+\begin_inset Quotes fld
+\end_inset
+
+qbits
+\begin_inset Quotes frd
+\end_inset
+
+ son totalmente equivalentes a un valor de probabilidad en el intervalo
+ [0, 1], y las operaciones referidas como 
+\begin_inset Quotes fld
+\end_inset
+
+puertas cuánticas
+\begin_inset Quotes frd
+\end_inset
+
+ son simplemente desplazamientos dentro de ese intervalo.
+ Si la idea original proviene o no de los conceptos cuánticos es irrelevante
+ para explicar el algoritmo.
+\end_layout
+
+\begin_layout Standard
+A pesar de todo, se trata de una nueva revisión del algoritmo evolutivo
+ que parece dar buenos resultados a la hora de aplicarlo a problemas reales.
+ Posibles investigaciones futuras pasarían por explorar otros subcampos
+ de la Computación Evolutiva más minoritarios desde la perspectiva de QEA.
+ Y a largo plazo, cuando se pueda explotar verdaderamente todo el potencial
+ de la Computación Cuántica, el diseño e implementación de algoritmos genéticos
+ cuánticos constituirá un área de investigación verdaderamente prometedora.
 \end_layout
 
 \begin_layout Standard
