@@ -519,7 +519,11 @@ Representación
 \end_layout
 
 \begin_layout Standard
-Un individuo posee un solo cromosoma que se modela como un vector de qbits:
+Un individuo posee un solo cromosoma que se modela como un vector de 
+\begin_inset Formula $m$
+\end_inset
+
+ qbits:
 \end_layout
 
 \begin_layout Standard
