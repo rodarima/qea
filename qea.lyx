@@ -519,7 +519,11 @@ Representación
 \end_layout
 
 \begin_layout Standard
-Un individuo posee un solo cromosoma que se modela como un vector de qbits:
+Un individuo posee un solo cromosoma que se modela como un vector de 
+\begin_inset Formula $m$
+\end_inset
+
+ qbits:
 \end_layout
 
 \begin_layout Standard
@@ -1246,7 +1250,7 @@ El QEA utiliza números reales para representar los qbits, desechando por
  cuántica, que es el entrelazamiento de qbits que se expone en la sección
  1.2.
  En QEA, los qbits siempre se tratan individualmente, sujetos a la restricción
- ya mencionada que establece
+ ya mencionada que establece 
 \begin_inset Formula $\left|\alpha_{i}\right|^{2}+\left|\beta_{i}\right|^{2}=1$
 \end_inset
 
