@@ -288,13 +288,13 @@ Computación Cuántica
 \end_layout
 
 \begin_layout Standard
-La computación cuántica es un nuevo paradigma de computación.
+La Computación Cuántica es un nuevo paradigma de computación.
  Emplea las propiedades especiales de la materia que suceden en una escala
  más pequeña.
 \end_layout
 
 \begin_layout Standard
-El objetivo que busca la computación cuántica es el de hacer uso de las
+El objetivo que busca la Computación Cuántica es el de hacer uso de las
  propiedades inherentes a la naturaleza para realizar computaciones.
  De la misma forma que los ordenadores clásicos que acostumbramos a emplear,
  existe una analogía cuántica; el ordenador cuántico.
@@ -430,7 +430,7 @@ Estado del arte
 \end_layout
 
 \begin_layout Standard
-Para entender el tipo de algoritmos que se va a analizar aquí, hay que entender
+Para entender el tipo de algoritmos que se va a analizar, hay que entender
  primero la diferencia entre QEA y otros conceptos que pueden parecer similares,
  pero no lo son en absoluto.
  Las palabras 
@@ -571,7 +571,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset listings
-lstparams "basicstyle={\ttfamily},tabsize=4"
+lstparams "basicstyle={\small\ttfamily},tabsize=4"
 inline false
 status open
 
@@ -642,12 +642,12 @@ begin
 
 \begin_layout Plain Layout
 
-8)  	store the best solutions among B(t-1) and P(t) into B(t)
+8)  	store best solutions among B(t-1) and P(t) into B(t)
 \end_layout
 
 \begin_layout Plain Layout
 
-9)  	store the best solution b among B(t)
+9)  	store best solution b among B(t)
 \end_layout
 
 \begin_layout Plain Layout
@@ -899,28 +899,6 @@ Al finalizar, el vector
 \end_layout
 
 \begin_layout Standard
-Estableciendo una correspondencia con los términos biológicos, la población
- en forma de qbits 
-\begin_inset Formula $Q(t)$
-\end_inset
-
- equivaldría al 
-\emph on
-genotipo, 
-\emph default
-y la forma binaria 
-\begin_inset Formula $P(t)$
-\end_inset
-
- al 
-\emph on
-fenotipo.
-
-\emph default
- 
-\end_layout
-
-\begin_layout Standard
 El algoritmo propuesto por Han 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -930,8 +908,8 @@ key "Han2003,Han2002_2,Han2002"
 
  no emplea las operaciones habituales de cruce ni de mutación para producir
  la siguiente generación de individuos.
- Sin embargo, otras publicaciones sí hacen uso de ellos (citar autores).
- 
+ Sin embargo, muchas otras publicaciones que se citan más adelante sí hacen
+ uso de ellos.
 \end_layout
 
 \begin_layout Subsection
@@ -997,7 +975,14 @@ Mohammed
 et al.
  
 \emph default
-experimentan con combinaciones de distintos tipos de cruce (
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Mohammed2012"
+
+\end_inset
+
+ experimentan con combinaciones de distintos tipos de cruce (
 \emph on
 single-point, two-point, multi-point 
 \emph default
@@ -1123,7 +1108,7 @@ key "Yangguang2010"
 \end_layout
 
 \begin_layout Standard
-En Julio de 2013, SHEN Xiaoning 
+En Julio de 2013, Shen Xiaoning 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Shen2013"
@@ -1184,7 +1169,7 @@ key "DeokHwa"
  Dado que el ajuste de los colores es un proceso difícil por motivo de las
  sombras y cambios de luz, usan QEA para determinar de forma automática
  los parámetros.
- Han conseguido resolver el problema, pero la simulación en demasiado lenta
+ Han conseguido resolver el problema, pero la simulación es demasiado lenta
  como para realizarla en tiempo real, durante la competición.
  Para solventarlo proponen emplear procesamiento por GPU, o realizar en
  preprocesado bayesiano de la imagen, que agilice el análisis posterior.
@@ -1246,7 +1231,7 @@ El QEA utiliza números reales para representar los qbits, desechando por
  cuántica, que es el entrelazamiento de qbits que se expone en la sección
  1.2.
  En QEA, los qbits siempre se tratan individualmente, sujetos a la restricción
- ya mencionada que establece
+ ya mencionada que establece 
 \begin_inset Formula $\left|\alpha_{i}\right|^{2}+\left|\beta_{i}\right|^{2}=1$
 \end_inset
 
@@ -1272,7 +1257,7 @@ puertas cuánticas
 
  son simplemente desplazamientos dentro de ese intervalo.
  Si la idea original proviene o no de los conceptos cuánticos es irrelevante
- para explicar el algoritmo.
+ para explicar el algoritmo, pues se podría hacer en términos probabilistas.
 \end_layout
 
 \begin_layout Standard
