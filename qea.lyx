@@ -299,7 +299,18 @@ El objetivo que busca la computación cuántica es el de hacer uso de las
  De la misma forma que los ordenadores clásicos que acostumbramos a emplear,
  existe una analogía cuántica; el ordenador cuántico.
  Los bits se convierten en qbits.
- La representación del estado de un qbit 
+ 
+\end_layout
+
+\begin_layout Standard
+Sin embargo, los qbits tienen la propiedad de encontrarse en varios estados
+ al mismo tiempo.
+ Esta propiedad se denomina 
+\emph on
+superposición
+\emph default
+.
+ Así, la representación del estado de un qbit 
 \begin_inset Formula $\left|\psi\right\rangle $
 \end_inset
 
@@ -360,10 +371,7 @@ Una ventaja frente a la computación clásica es la superposición de estados.
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\left|\psi\right\rangle =\bigotimes^{n}\left(\begin{array}{c}
-\alpha_{i}\\
-\beta_{i}
-\end{array}\right)
+\left|\psi\right\rangle =\gamma_{1}\left|00\ldots0\right\rangle +\gamma_{2}\left|00\ldots1\right\rangle +\ldots+\gamma_{2^{n}}\left|11\ldots1\right\rangle 
 \]
 
 \end_inset
@@ -372,18 +380,18 @@ Una ventaja frente a la computación clásica es la superposición de estados.
 \end_layout
 
 \begin_layout Standard
-No es necesario que cada qbit individual cumpla 
-\begin_inset Formula $\left|\alpha_{i}\right|^{2}+\left|\beta_{i}\right|^{2}=1$
-\end_inset
-
-, si no que 
+Sólo debe cumplir la restricción: 
 \begin_inset Formula 
 \[
-\sum^{n}\left|\alpha_{i}\right|^{2}+\sum^{n}\left|\beta_{i}\right|^{2}=1
+\sum_{_{i=1}}^{2^{n}}\left|\gamma_{i}\right|^{2}=1
 \]
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Standard
 De forma que se pueden construir estados especiales, que no son posibles
  en los bits clásicos, por ejemplo el estado de Bell, denominado 
 \begin_inset Formula $\left|B_{00}\right\rangle $
@@ -865,7 +873,132 @@ Rendimiento
 \end_layout
 
 \begin_layout Section
-Aplicaciones
+Aplicaciones en la robótica
+\end_layout
+
+\begin_layout Standard
+Existen varios ejemplos de QEA aplicados al campo de la robótica.
+ En general se centran en problemas con un amplio espacio de búsqueda, donde
+ los algoritmos evolutivos son apropiados.
+ Dado que es un campo de reciente desarrollo, las posibles aplicaciones
+ aún no han sido exploradas en profundidad.
+\end_layout
+
+\begin_layout Subsection
+Motricidad
+\end_layout
+
+\begin_layout Standard
+Gwo-Ruey Yu y Lun-Wei Huang propusieron un controlador para un brazo robótico
+ de dos articulaciones, empleando lógica difusa y basado en un problema
+ de optimización LMI (linear matrix inequality).
+\end_layout
+
+\begin_layout Standard
+Los resultados son comparados con el mismo controlador, con algoritmos genéticos.
+ El resultado para QEA es mejor que para GA, sin embargo no incluye una
+ comparación cuantitativa.
+\end_layout
+
+\begin_layout Standard
+In-Won Park, Ki-Baek Lee y Jong-Hwan Kim emplean el algoritmo MQEA, que
+ mejora QEA añadiendo varios objetivos para minimizar.
+ Lo han aplicado al control de la postura de un robot humanoide, cuando
+ recibe una fuerza externa, de forma que pueda mantenerse de pie.
+ Utilizan el método ILQR (iterative linear quadratic regulator) en el que
+ los pesos de la matriz se obtienen de forma evolutiva.
+\end_layout
+
+\begin_layout Standard
+Obtuvieron las trayectorias óptimas que mejor satisfacen los criterios de
+ calidad (ángulo, torque y tiempo).
+ 
+\end_layout
+
+\begin_layout Subsection
+Planificación de rutas
+\end_layout
+
+\begin_layout Standard
+En 2009, Ye-Hoon Kim y Jong-Hwan Kim usan el método MQEA para diseñar de
+ forma eficiente, un sistema de diseño de rutas, basado en lógica difusa.
+ Emplean el tiempo, la dirección global y local como criterios de medida
+ de calidad.
+ Tratan de golpear una pelota en un juego de fútbol para robots.
+\end_layout
+
+\begin_layout Standard
+Al comparar los resultados con el algoritmo NSGA-II (nondominated sorting
+ genetic algorithm-II), obtienen unos resultados más cercanos al frente
+ óptimo de Pareto.
+\end_layout
+
+\begin_layout Standard
+Un año más tarde, Yangguang Sun y Mingyue Ding analizan el problema de trazar
+ rutas para evitar obstáculos (path planning).
+ Codifican la ruta en los propios qbits y añaden operadores de mutación.
+ Los resultados son de mayor diversidad poblacional, mejores capacidades
+ de búsqueda y una mejor convergencia.
+\end_layout
+
+\begin_layout Standard
+En Julio de 2013, SHEN Xiaoning mejoró las soluciones al problema de trazado
+ de rutas, para entornos dinámicos.
+ A través de un mapa de casillas, trata de buscar una ruta, en el que los
+ obstáculos cambian de posición y morfología.
+ Además añade operaciones de mutación y cruce, para evitar la convergencia
+ prematura.
+\end_layout
+
+\begin_layout Standard
+Los resultados muestran otra vez que QEA supera a los algoritmos genéticos
+ clásicos.
+ Además muestra también los resultados de QEA sin mutación ni cruce, y se
+ aprecia que en el caso en el que aparece un nuevo obstáculo, no consiguen
+ encontrar el camino óptimo.
+ Por el contrario, con dichos operadores, la ruta óptima se encuntra el
+ 100% de los casos.
+\end_layout
+
+\begin_layout Subsection
+Otras aplicaciones
+\end_layout
+
+\begin_layout Standard
+Si-Jung Ryu, Rituparna Datta y Jong-Hwan Kim proponen emplear otra variante
+ de QEA denominada DMQEA (dual multiobjective quantum-inspired evolutionary
+ algorithm) para la colocación óptima de sensores de proximidad en un entorno
+ 2D.
+ En los experimentos tratan de minimizar el número de sensores, la cobertura
+ y el ratio de interferencia.
+ Sin embargo no proporcionan una comparación con otros algoritmos.
+ Mencionan que el algoritmo DMQEA es capaz de indicar las posiciones óptimas
+ de la colocación de cada sensor, para minimizar los objetivos, en las proporcio
+nes que se le indiquen.
+\end_layout
+
+\begin_layout Standard
+Deok-Hwa Kim et.
+ al han propuesto una solución para la detección automática de robots, en
+ el programa MiroSOT, enfocado a campeonatos de fútbol para robots.
+ Dado que el ajuste de los colores es un proceso difícil por motivo de las
+ sombras y cambios de luz, usan QEA para determinar de forma automática
+ los parámetros.
+ Han conseguido resolver el problema, pero la simulación en demasiado lenta
+ como para realizarla en tiempo real, durante la competición.
+ Para solventarlo proponen emplear procesamiento por GPU, o realizar en
+ preprocesado bayesiano de la imagen, que agilice el análisis posterior.
+\end_layout
+
+\begin_layout Standard
+Zhiyong Li et.
+ al aplican QEA a entornos multi-robot, para trabajar de forma cooperativa
+ en una formación de coalición.
+ Los robots deben trabajar en equipo para solucionar una tarea.
+ Enfocan la solución de forma genérica, donde existe una función objetivo
+ a minimizar.
+ En comparación con los algoritmos genéticos clásicos, la calidad de esta
+ solución no sólo es mejor, si no que se encuentra de forma más rápida.
 \end_layout
 
 \begin_layout Standard
