@@ -190,7 +190,7 @@ Los Algoritmos Evolutivos son un método de resolución de problemas ampliamente
  toma algunos conceptos del campo emergente de la Computación Cuántica para
  modelar el individuo y la manera en que este evoluciona.
  Hay que tener presente que no se trata de un algoritmo cuántico, sino de
- un algoritmo clásico, pensado para ser ejecutado en un computador clásico,
+ un algoritmo clásico, pensado para ser ejecutado en un computador digital,
  pero que utiliza conceptos de Computación Cuántica como son el 
 \emph on
 qbit
@@ -422,14 +422,37 @@ Estado del arte
 \end_layout
 
 \begin_layout Standard
-\begin_inset Newpage pagebreak
-\end_inset
-
-
+Para entender el tipo de algoritmos que se va a analizar aquí, hay que entender
+ primero la diferencia entre QEA y otros conceptos que pueden parecer similares,
+ pero no lo son en absoluto.
+ Las palabras 
+\emph on
+quantum, evolutionary 
+\emph default
+y 
+\emph on
+genetic, 
+\emph default
+aparecen juntas en decenas de publicaciones que nada tienen que ver unas
+ con otras.
+ 
 \end_layout
 
-\begin_layout Section
-El concepto de QEA
+\begin_layout Standard
+Existen tres líneas de investigación que relacionan los conceptos de la
+ Computación Cuántica con la Computación Evolutiva: una muy popular es la
+ generación automática de circuitos cuánticos mediante algoritmos genéticos
+ tradicionales; otra, que es la que se denomina como 
+\emph on
+Quantum-Inspired Evolutionary Algorithms
+\emph default
+, consiste en el diseño de algoritmos evolutivos (para computadores digitales)
+ que toman algunos conceptos de la Computación Cuántica para modelar la
+ población; y una última, quizás la menos desarrollada de todas por su elevadísi
+ma complejidad, que estudia algoritmos evolutivos cuánticos en sentido literal,
+ es decir, para ser ejecutados en una máquina cuántica.
+ La que se va a estudiar aquí es la segunda, pero es interesante conocer
+ y distinguir las demás.
 \end_layout
 
 \begin_layout Standard
@@ -452,7 +475,38 @@ key "Han2003,Han2002_2,Han2002"
 
  como guía para exponer el algoritmo, por el mayor nivel de detalle que
  hay en su trabajo.
- Ellos proponen el siguiente esquema general para QEA.
+ En su tesis, publicada en 2003, Han propone una estructura genérica para
+ los QEA, y después implementa varias versiones adaptadas a distintos problemas.
+\end_layout
+
+\begin_layout Standard
+Desde su primera aparición en 1996, los QEA han sido objeto de estudio de
+ un número considerable de publicaciones, pero no se puede decir que sea
+ una línea de investigación especialmente popular.
+ Después de más de una década, su desarrollo no parece avanzar demasiado,
+ y las novedades consisten solamente en pequeñas mejoras del algoritmo original.
+ Además, apenas se ha llevado a la práctica en unos pocos problemas cuya
+ finalidad no fuese mero 
+\emph on
+benchmarking 
+\emph default
+del algoritmo.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+El concepto de QEA
+\end_layout
+
+\begin_layout Standard
+A continuación se detalla la propuesta de Han y Kim para el esquema general
+ de un QEA.
 \end_layout
 
 \begin_layout Subsection
