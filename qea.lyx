@@ -1016,9 +1016,16 @@ Motricidad
 \end_layout
 
 \begin_layout Standard
-Gwo-Ruey Yu y Lun-Wei Huang propusieron un controlador para un brazo robótico
- de dos articulaciones, empleando lógica difusa y basado en un problema
- de optimización LMI (linear matrix inequality).
+Gwo-Ruey Yu y Lun-Wei Huang 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "GwoRuey2009"
+
+\end_inset
+
+ propusieron un controlador para un brazo robótico de dos articulaciones,
+ empleando lógica difusa y basado en un problema de optimización LMI (linear
+ matrix inequality).
 \end_layout
 
 \begin_layout Standard
@@ -1028,8 +1035,15 @@ Los resultados son comparados con el mismo controlador, con algoritmos genético
 \end_layout
 
 \begin_layout Standard
-In-Won Park, Ki-Baek Lee y Jong-Hwan Kim emplean el algoritmo MQEA, que
- mejora QEA añadiendo varios objetivos para minimizar.
+In-Won Park, Ki-Baek Lee y Jong-Hwan Kim 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Park2012"
+
+\end_inset
+
+ emplean el algoritmo MQEA, que mejora QEA añadiendo varios objetivos para
+ minimizar.
  Lo han aplicado al control de la postura de un robot humanoide, cuando
  recibe una fuerza externa, de forma que pueda mantenerse de pie.
  Utilizan el método ILQR (iterative linear quadratic regulator) en el que
@@ -1047,8 +1061,15 @@ Planificación de rutas
 \end_layout
 
 \begin_layout Standard
-En 2009, Ye-Hoon Kim y Jong-Hwan Kim usan el método MQEA para diseñar de
- forma eficiente, un sistema de diseño de rutas, basado en lógica difusa.
+En 2009, Ye-Hoon Kim y Jong-Hwan Kim 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "YeHoon2009"
+
+\end_inset
+
+ usan el método MQEA para diseñar de forma eficiente, un sistema de diseño
+ de rutas, basado en lógica difusa.
  Emplean el tiempo, la dirección global y local como criterios de medida
  de calidad.
  Tratan de golpear una pelota en un juego de fútbol para robots.
@@ -1061,16 +1082,28 @@ Al comparar los resultados con el algoritmo NSGA-II (nondominated sorting
 \end_layout
 
 \begin_layout Standard
-Un año más tarde, Yangguang Sun y Mingyue Ding analizan el problema de trazar
- rutas para evitar obstáculos (path planning).
+Un año más tarde, Yangguang Sun y Mingyue Ding 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Yangguang2010"
+
+\end_inset
+
+ analizan el problema de trazar rutas para evitar obstáculos (path planning).
  Codifican la ruta en los propios qbits y añaden operadores de mutación.
  Los resultados son de mayor diversidad poblacional, mejores capacidades
  de búsqueda y una mejor convergencia.
 \end_layout
 
 \begin_layout Standard
-En Julio de 2013, SHEN Xiaoning mejoró las soluciones al problema de trazado
- de rutas, para entornos dinámicos.
+En Julio de 2013, SHEN Xiaoning 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Shen2013"
+
+\end_inset
+
+ mejoró las soluciones al problema de trazado de rutas, para entornos dinámicos.
  A través de un mapa de casillas, trata de buscar una ruta, en el que los
  obstáculos cambian de posición y morfología.
  Además añade operaciones de mutación y cruce, para evitar la convergencia
@@ -1092,10 +1125,16 @@ Otras aplicaciones
 \end_layout
 
 \begin_layout Standard
-Si-Jung Ryu, Rituparna Datta y Jong-Hwan Kim proponen emplear otra variante
- de QEA denominada DMQEA (dual multiobjective quantum-inspired evolutionary
- algorithm) para la colocación óptima de sensores de proximidad en un entorno
- 2D.
+Si-Jung Ryu, Rituparna Datta y Jong-Hwan Kim 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "SiJung"
+
+\end_inset
+
+ proponen emplear otra variante de QEA denominada DMQEA (dual multiobjective
+ quantum-inspired evolutionary algorithm) para la colocación óptima de sensores
+ de proximidad en un entorno 2D.
  En los experimentos tratan de minimizar el número de sensores, la cobertura
  y el ratio de interferencia.
  Sin embargo no proporcionan una comparación con otros algoritmos.
@@ -1106,8 +1145,15 @@ nes que se le indiquen.
 
 \begin_layout Standard
 Deok-Hwa Kim et.
- al han propuesto una solución para la detección automática de robots, en
- el programa MiroSOT, enfocado a campeonatos de fútbol para robots.
+ al 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "DeokHwa"
+
+\end_inset
+
+ han propuesto una solución para la detección automática de robots, en el
+ programa MiroSOT, enfocado a campeonatos de fútbol para robots.
  Dado que el ajuste de los colores es un proceso difícil por motivo de las
  sombras y cambios de luz, usan QEA para determinar de forma automática
  los parámetros.
@@ -1119,7 +1165,14 @@ Deok-Hwa Kim et.
 
 \begin_layout Standard
 Zhiyong Li et.
- al aplican QEA a entornos multi-robot, para trabajar de forma cooperativa
+ al 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Zhiyong2009"
+
+\end_inset
+
+ aplican QEA a entornos multi-robot, para trabajar de forma cooperativa
  en una formación de coalición.
  Los robots deben trabajar en equipo para solucionar una tarea.
  Enfocan la solución de forma genérica, donde existe una función objetivo
