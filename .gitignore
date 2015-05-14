@@ -1,3 +1,17 @@
 # Ignorar estos archivos:
 
 *.lyx~
+
+
+*.aux
+*.log
+*.nav
+*.out
+*.pdf
+*.snm
+*.tex
+*.toc
+*.vrb
+
+*.pdf
+*.pdf_tex

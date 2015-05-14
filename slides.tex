@@ -15,12 +15,20 @@
 
 % Comenzar párrafos con separación no indentación.
 \usepackage{parskip}
-%enlaces
+
+% Enlaces
 \usepackage{hyperref}
+
 % Usar gráficos
-\usepackage{graphicx}
-\usepackage{caption}
-\usepackage{subcaption}
+%\usepackage{graphicx}
+%\usepackage{caption}
+%\usepackage{subcaption}
+\usepackage{amsmath}
+\usepackage{svg}
+
+% Fórmulas matemáticas con fuente adecuada
+\usefonttheme[onlymath]{serif}
+
 %
 % Usar contenedores flotantes para figuras.
 \usepackage{float}
@@ -143,6 +151,7 @@ Lenguaje para cálculo paralelo independiente del hw (2009).
 
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Introducción a la computación cuántica (QC)}
 Objetivo: Aprovechar las propiedades de la naturaleza en una escala muy pequeña, 
@@ -153,20 +162,38 @@ para realizar computaciones.
 Motivación: La gran aceleración que se puede obtener y el bajo coste energético
 
 \end{frame}
-
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-\frametitle{Procesamiento paralelo}
+\frametitle{El bit frente al qubit}
 
-\begin{itemize}
-\item La GPU tiene muchos núcleos.
-\item Pero sólo tiene una memoria.
-\item Enviamos datos, y un programa común.
-\item Cada núcleo ejecuta el mismo programa, con diferentes datos
-\end{itemize}
+%$$\frac{|0\rangle+i|1\rangle}{\sqrt{2}}$$
+%$$\frac{|0\rangle+|1\rangle}{\sqrt{2}}$$
+\begin{columns}
+	\begin{column}{0.33\textwidth}
+		\center
+		Clásico
+		\includesvg[width=\textwidth]{bit}
+
+	\end{column}
+	\begin{column}{0.33\textwidth}
+		\center
+		Probabilístico
+		\includesvg[width=\textwidth]{pbit}
+	\end{column}
+	\begin{column}{0.33\textwidth}
+		\center
+		Cuántico
+		\includesvg[width=\textwidth]{qbit}
+	\end{column}
+\end{columns}
 
 \end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
