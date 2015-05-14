@@ -35,6 +35,7 @@
 
 % Carpeta de las imágenes.
 \graphicspath{{img/}}
+\setsvg{svgpath = img/}
 
 % Configuración para porciones de código.
 \lstset{
@@ -163,27 +164,68 @@ Motivación: La gran aceleración que se puede obtener y el bajo coste energéti
 
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
+\begin{frame}[t]
 \frametitle{El bit frente al qubit}
 
 %$$\frac{|0\rangle+i|1\rangle}{\sqrt{2}}$$
 %$$\frac{|0\rangle+|1\rangle}{\sqrt{2}}$$
 \begin{columns}
-	\begin{column}{0.33\textwidth}
+	\begin{column}{0.25\textwidth}
 		\center
 		Clásico
-		\includesvg[width=\textwidth]{bit}
-
 	\end{column}
-	\begin{column}{0.33\textwidth}
+	\begin{column}{0.25\textwidth}
+		\center
+		Clásico
+	\end{column}
+	\begin{column}{0.25\textwidth}
 		\center
 		Probabilístico
-		\includesvg[width=\textwidth]{pbit}
 	\end{column}
-	\begin{column}{0.33\textwidth}
+	\begin{column}{0.25\textwidth}
 		\center
 		Cuántico
+	\end{column}
+\end{columns}
+
+\begin{columns}[c]
+	\begin{column}{0.25\textwidth}
+		Estados
+	\end{column}
+	\begin{column}{0.25\textwidth}
+		\includesvg[width=\textwidth]{bit}
+	\end{column}
+	\begin{column}{0.25\textwidth}
+		\includesvg[width=\textwidth]{pbit}
+	\end{column}
+	\begin{column}{0.25\textwidth}
 		\includesvg[width=\textwidth]{qbit}
+	\end{column}
+\end{columns}
+
+\begin{columns}[b]
+	\begin{column}{0.25\textwidth}
+		Descripción
+	\end{column}
+	\begin{column}{0.25\textwidth}
+		$$ \begin{bmatrix}
+			1 \\
+			0 \\
+			\end{bmatrix} $$
+	\end{column}
+	\begin{column}{0.25\textwidth}
+		$$ \begin{bmatrix}
+			p \\
+			1-p \\
+			\end{bmatrix}
+			\, p \in \mathbb{R} $$
+	\end{column}
+	\begin{column}{0.25\textwidth}
+		$$ \begin{bmatrix}
+			\alpha \\
+			\beta \\
+			\end{bmatrix} 
+			\, \alpha, \beta \in \mathbb{C} $$
 	\end{column}
 \end{columns}
 
