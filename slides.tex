@@ -115,120 +115,156 @@
 \end{block}
 
 \end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{Introducción}
-\begin{block}{Propósito}
-\begin{itemize}
-\item Lenguaje de programación orientado al cálculo numérico.
-\item Objetivo: explotar al máximo la GPU y la CPU.
-\end{itemize}
-\end{block}
-\end{frame}
-
-\begin{frame}
-\frametitle{QEA}
-
-
-General	Purpose computing on Graphics Processing Units
-
-Usar la GPU como herramienta de computación
-
-\pause
-
-SIMD = Single Instruction, Multiple Data
-
-Ejecutar una sóla instrucción a varios elementos a la vez.
-
-\pause
-
-OpenCL = OpenComputing Language
-
-Lenguaje para cálculo paralelo independiente del hw (2009).
-
-
-\end{frame}
-
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Introducción a la computación cuántica (QC)}
 Objetivo: Aprovechar las propiedades de la naturaleza en una escala muy pequeña, 
 para realizar computaciones.
 
-\pause
-
-Motivación: La gran aceleración que se puede obtener y el bajo coste energético
+Motivación: Se consigue una elevadísima aceleración; la complejidad es
+diferente.
 
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Ejemplo algoritmo shor}
+	\includegraphics[width=\textwidth]{shor}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[t]
-\frametitle{El bit frente al qubit}
+\frametitle{El qubit en comparación}
 
 %$$\frac{|0\rangle+i|1\rangle}{\sqrt{2}}$$
 %$$\frac{|0\rangle+|1\rangle}{\sqrt{2}}$$
 \begin{columns}
-	\begin{column}{0.25\textwidth}
-		\center
+	\centering
+	\begin{column}{0.33\textwidth}
+		\centering
 		Clásico
 	\end{column}
-	\begin{column}{0.25\textwidth}
-		\center
-		Clásico
-	\end{column}
-	\begin{column}{0.25\textwidth}
-		\center
+	\begin{column}{0.33\textwidth}
+		\centering
 		Probabilístico
 	\end{column}
-	\begin{column}{0.25\textwidth}
-		\center
+	\begin{column}{0.33\textwidth}
+		\centering
 		Cuántico
 	\end{column}
 \end{columns}
 
+%\hspace{1cm}
+
 \begin{columns}[c]
-	\begin{column}{0.25\textwidth}
-		Estados
-	\end{column}
-	\begin{column}{0.25\textwidth}
+	\centering
+	\begin{column}{0.33\textwidth}
+		\centering
 		\includesvg[width=\textwidth]{bit}
 	\end{column}
-	\begin{column}{0.25\textwidth}
+	\vrule{}
+	\begin{column}{0.33\textwidth}
+		\centering
 		\includesvg[width=\textwidth]{pbit}
 	\end{column}
-	\begin{column}{0.25\textwidth}
+	\vrule{}
+	\begin{column}{0.33\textwidth}
+		\centering
 		\includesvg[width=\textwidth]{qbit}
 	\end{column}
 \end{columns}
 
-\begin{columns}[b]
-	\begin{column}{0.25\textwidth}
-		Descripción
-	\end{column}
-	\begin{column}{0.25\textwidth}
+\hrule{}
+
+%\begin{columns}[b]
+%	\begin{column}{0.33\textwidth}
+%		$$ \begin{bmatrix}
+%			0 \\
+%			1 \\
+%			\end{bmatrix} $$
+%	\end{column}
+%	\vrule{}
+%	\begin{column}{0.33\textwidth}
+%		$$ \begin{bmatrix}
+%			0.3 \\
+%			0.7 \\
+%			\end{bmatrix} $$
+%	\end{column}
+%	\vrule{}
+%	\begin{column}{0.33\textwidth}
+%%		$$ \begin{bmatrix}
+%%			\sqrt{12/16} \\
+%%			\sqrt{3/16} + \sqrt{1/16}i \\
+%%			\end{bmatrix} $$
+%		$$ \begin{bmatrix}
+%			0.87 \\
+%			0.43 + 0.25i \\
+%			\end{bmatrix} $$
+%	\end{column}
+%\end{columns}
+
+\begin{columns}[c]
+	\begin{column}{0.33\textwidth}
 		$$ \begin{bmatrix}
-			1 \\
 			0 \\
+			1 \\
 			\end{bmatrix} $$
-	\end{column}
-	\begin{column}{0.25\textwidth}
 		$$ \begin{bmatrix}
-			p \\
+			1-b \\
+			b \\
+			\end{bmatrix}
+			\, b \in \{0, 1\} $$
+	\end{column}
+	\vrule{}
+	\begin{column}{0.33\textwidth}
+		$$ \begin{bmatrix}
+			0.3 \\
+			0.7 \\
+			\end{bmatrix} $$
+		$$ \begin{bmatrix}
 			1-p \\
+			p \\
 			\end{bmatrix}
 			\, p \in \mathbb{R} $$
+		$$ p \in [0,1]$$
 	\end{column}
-	\begin{column}{0.25\textwidth}
+	\vrule{}
+	\begin{column}{0.33\textwidth}
+		$$ \begin{bmatrix}
+			0.87 \\
+			0.43 + 0.25i \\
+			\end{bmatrix} $$
 		$$ \begin{bmatrix}
 			\alpha \\
 			\beta \\
 			\end{bmatrix} 
 			\, \alpha, \beta \in \mathbb{C} $$
+		$$ |\alpha|^2 + |\beta|^2 = 1 $$
 	\end{column}
 \end{columns}
 
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Codificación de un cromosoma}
+\begin{columns}[c]
+	\begin{column}{0.5\textwidth}
+		\centering
+		Clásico
+		$$ \mathbf{q} = \begin{bmatrix}
+			b_1	& b_2	& \ldots	& b_m\\
+		\end{bmatrix} $$
+		$$ b_i \in \{0, 1\}$$
+	\end{column}
+	\vrule{}
+	\begin{column}{0.5\textwidth}
+		\centering
+		QEA
+		$$ \mathbf{q} = \begin{bmatrix}
+			\alpha_1	& \alpha_2	& \ldots	& \alpha_m\\
+			\beta_1		& \beta_2		& \ldots	& \beta_m\\
+		\end{bmatrix} $$
+		$$ |\alpha_i|^2 + |\beta_i|^2 = 1 $$
+	\end{column}
+\end{columns}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
@@ -236,228 +272,274 @@ Motivación: La gran aceleración que se puede obtener y el bajo coste energéti
 
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-\begin{frame}
-\frametitle{Dónde está la mejora? Ejemplo de matrices.}
-
-$A, B$ y $C$ son matrices de $NxN$. Disponemos de $P$ núcleos.
-
-Calcular $C = A * B$. Complejidad $ O(n^3) $.
-
-
-\begin{itemize}
-\item Dividir la matriz $C$ en bloques de $P$ elementos.
-\item Asignar cada elemento $(i,j)$ del bloque a un núcleo:
-\item Repetir para todos los bloques.
-\end{itemize}
-
+\begin{frame}{Aplicaciones a la robótica}{Controlador de brazo robótico basado
+en lógica difusa}
+	\centering
+	\includegraphics[scale=0.3]{arm}
 \end{frame}
-
-
-
-\begin{frame}[fragile]
-Procesamiento paralelo, en cada núcleo
-
-\begin{lstlisting}
-
-    C[i][j] = 0;
-    for(k = 0; k < K; k++)
-        C[i][j] += A[i][k] * B[k][j];
-
-\end{lstlisting}
-
-Complejidad final de $ O(n^3 / P) $
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Aplicaciones a la robótica}{Control de la postura de un robot
+frente a una fuerza}
+	\centering
+	\includegraphics[width=\textwidth]{humanoid1}
+\\
+	\includegraphics[width=\textwidth]{humanoid2}
 \end{frame}
-
-
-
-\begin{frame}
-\frametitle{Demo}
-Multiplicación de matrices.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Aplicaciones a la robótica}{Planificación de trayectorias}
+	\centering
+	\includegraphics[scale=0.4]{path1}
 \end{frame}
-
-
-
-\begin{frame}
-
-\frametitle{Ejemplo de filtro.}
-
-Cada núcleo ejecuta un pequeño programa, como sumar los valores
-de los píxeles vecinos.
-
-El resultado se almacena en un lugar aparte, sin modificar la original.
-
-Todos los núcleos se pueden ejecutar en paralelo.
-
-La imagen resultante, regresa a la RAM.
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Aplicaciones a la robótica}{Planificación de trayectorias}
+	\centering
+	\includegraphics[scale=0.3]{path2}
 \end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Aplicaciones a la robótica}{Planificación de trayectorias}
+	\centering
+	\includegraphics[scale=0.3]{path3}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Aplicaciones a la robótica}{Planificación de trayectorias}
+	\centering
+	\includegraphics[scale=0.3]{path4}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Aplicaciones a la robótica}{Detección de robots en competiciones}
+	\centering
+\begin{columns}[c]
+	\begin{column}{0.5\textwidth}
+		\includegraphics[width=\textwidth]{detect1}
+	\end{column}
+	\begin{column}{0.5\textwidth}
+		\includegraphics[width=\textwidth]{detect2}
+	\end{column}
+\end{columns}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-
+%
 %\begin{frame}
-%\center
-%\includegraphics[width=\textheight]{convolucion.jpg}
+%\frametitle{Dónde está la mejora? Ejemplo de matrices.}
+%
+%$A, B$ y $C$ son matrices de $NxN$. Disponemos de $P$ núcleos.
+%
+%Calcular $C = A * B$. Complejidad $ O(n^3) $.
+%
+%
+%\begin{itemize}
+%\item Dividir la matriz $C$ en bloques de $P$ elementos.
+%\item Asignar cada elemento $(i,j)$ del bloque a un núcleo:
+%\item Repetir para todos los bloques.
+%\end{itemize}
+%
 %\end{frame}
-
-
-
-\begin{frame}
-\frametitle{Problema}
-
-Sabemos resolver muchos problemas, empleando algoritmos secuenciales.
-Convertir un algoritmo a uno paralelo, requiere replantearlo.
-
-\end{frame}
-
-
-
-\begin{frame}[fragile]
-\frametitle{Solución?}
-
-Realizar cambios mecánicamente en el código secuencial para vectorizar aquello
-que sea posible. Rama de investigación, vectorización.
-
-Ejemplo:
-
-\begin{lstlisting}
-    for(i = 0; i < N; i++)
-    {
-        A[i]++;
-        A[N-1-i]++;
-    }
-\end{lstlisting}
-
-El optimizador debe ser capaz de deducir:
-
-\begin{lstlisting}
-A = A + 2;
-\end{lstlisting}
-
-\end{frame}
-
-
-
-\begin{frame}
-\frametitle{Optimización de código secuencial}
-Tratar de paralelizar todo el código posible.
-
-Crear un grafo de operaciones y simplificarlo.
-\end{frame}
-
-
-
-\begin{frame}[fragile]
-Código de ejemplo
-
-\begin{lstlisting}
- A = B*C + D*E
- C = A+E + E*B
- B = B*E + C
-\end{lstlisting}
-
-Descomposición:
-
-\begin{lstlisting}
-1    F = B*C
-2    G = D*E
-3    A = F+G
-4    H = A*E
-5    C = H+B
-6    I = B*E
-7    B = I*C
-\end{lstlisting}
-
-\end{frame}
-
-
-
-\begin{frame}[fragile]
-Descomposición:
-\begin{lstlisting}
-1    F = B*C
-2    G = D*E
-3    A = F+G
-4    H = A*E
-5    C = H+B
-6    I = B*E
-7    B = I*C
-\end{lstlisting}
-Tabla de operaciones:
-\begin{lstlisting}
-  A B C D E F G H I
-  -----------------
-1   . .     1      
-2       . .   2        
-3 3         . .        
-4 .       .     4     
-5   . 5         .
-6   .     .       6
-7   7 .           .
-\end{lstlisting}
-\end{frame}
-
-
-
-\begin{frame}[fragile]
-Tabla de operaciones:
-\begin{lstlisting}
-  A B C D E F G H I
-  -----------------
-1   . .     1      
-2       . .   2        
-3 3         . .        
-4 .       .     4     
-5   . 5         .
-6   .     .       6
-7   7 .           .
-\end{lstlisting}
-Optimización de operaciones.
-\begin{lstlisting}
-  A B C D E F G H I
-  -----------------
-1   . . . . 1 2    
-2 3         . .       
-3 .       .     4    
-4   . 5   .     . 6
-5   7 .           .
-\end{lstlisting}
-\end{frame}
-
-
-
-\begin{frame}[fragile]
-Optimización de operaciones.
-\begin{lstlisting}
-  A B C D E F G H I
-  -----------------
-1   . . . . 1 2    
-2 3         . .       
-3 .       .     4    
-4   . 5   .     . 6
-5   7 .           .
-\end{lstlisting}
-Optimización del espacio.
-\begin{lstlisting}
-
-  A B C D E F G H I
-  -----------------
-1   . . . . 1 2    
-2 3         . .    
-3 .       . 4      
-4   . 5   . . 6    
-5   7 .       .    
-\end{lstlisting}
-\end{frame}
-
-
-
-\begin{frame}
-
-\end{frame}
+%
+%
+%
+%\begin{frame}[fragile]
+%Procesamiento paralelo, en cada núcleo
+%
+%\begin{lstlisting}
+%
+%    C[i][j] = 0;
+%    for(k = 0; k < K; k++)
+%        C[i][j] += A[i][k] * B[k][j];
+%
+%\end{lstlisting}
+%
+%Complejidad final de $ O(n^3 / P) $
+%
+%\end{frame}
+%
+%
+%
+%\begin{frame}
+%\frametitle{Demo}
+%Multiplicación de matrices.
+%\end{frame}
+%
+%
+%
+%\begin{frame}
+%
+%\frametitle{Ejemplo de filtro.}
+%
+%Cada núcleo ejecuta un pequeño programa, como sumar los valores
+%de los píxeles vecinos.
+%
+%El resultado se almacena en un lugar aparte, sin modificar la original.
+%
+%Todos los núcleos se pueden ejecutar en paralelo.
+%
+%La imagen resultante, regresa a la RAM.
+%
+%\end{frame}
+%
+%
+%
+%%\begin{frame}
+%%\center
+%%\includegraphics[width=\textheight]{convolucion.jpg}
+%%\end{frame}
+%
+%
+%
+%\begin{frame}
+%\frametitle{Problema}
+%
+%Sabemos resolver muchos problemas, empleando algoritmos secuenciales.
+%Convertir un algoritmo a uno paralelo, requiere replantearlo.
+%
+%\end{frame}
+%
+%
+%
+%\begin{frame}[fragile]
+%\frametitle{Solución?}
+%
+%Realizar cambios mecánicamente en el código secuencial para vectorizar aquello
+%que sea posible. Rama de investigación, vectorización.
+%
+%Ejemplo:
+%
+%\begin{lstlisting}
+%    for(i = 0; i < N; i++)
+%    {
+%        A[i]++;
+%        A[N-1-i]++;
+%    }
+%\end{lstlisting}
+%
+%El optimizador debe ser capaz de deducir:
+%
+%\begin{lstlisting}
+%A = A + 2;
+%\end{lstlisting}
+%
+%\end{frame}
+%
+%
+%
+%\begin{frame}
+%\frametitle{Optimización de código secuencial}
+%Tratar de paralelizar todo el código posible.
+%
+%Crear un grafo de operaciones y simplificarlo.
+%\end{frame}
+%
+%
+%
+%\begin{frame}[fragile]
+%Código de ejemplo
+%
+%\begin{lstlisting}
+% A = B*C + D*E
+% C = A+E + E*B
+% B = B*E + C
+%\end{lstlisting}
+%
+%Descomposición:
+%
+%\begin{lstlisting}
+%1    F = B*C
+%2    G = D*E
+%3    A = F+G
+%4    H = A*E
+%5    C = H+B
+%6    I = B*E
+%7    B = I*C
+%\end{lstlisting}
+%
+%\end{frame}
+%
+%
+%
+%\begin{frame}[fragile]
+%Descomposición:
+%\begin{lstlisting}
+%1    F = B*C
+%2    G = D*E
+%3    A = F+G
+%4    H = A*E
+%5    C = H+B
+%6    I = B*E
+%7    B = I*C
+%\end{lstlisting}
+%Tabla de operaciones:
+%\begin{lstlisting}
+%  A B C D E F G H I
+%  -----------------
+%1   . .     1      
+%2       . .   2        
+%3 3         . .        
+%4 .       .     4     
+%5   . 5         .
+%6   .     .       6
+%7   7 .           .
+%\end{lstlisting}
+%\end{frame}
+%
+%
+%
+%\begin{frame}[fragile]
+%Tabla de operaciones:
+%\begin{lstlisting}
+%  A B C D E F G H I
+%  -----------------
+%1   . .     1      
+%2       . .   2        
+%3 3         . .        
+%4 .       .     4     
+%5   . 5         .
+%6   .     .       6
+%7   7 .           .
+%\end{lstlisting}
+%Optimización de operaciones.
+%\begin{lstlisting}
+%  A B C D E F G H I
+%  -----------------
+%1   . . . . 1 2    
+%2 3         . .       
+%3 .       .     4    
+%4   . 5   .     . 6
+%5   7 .           .
+%\end{lstlisting}
+%\end{frame}
+%
+%
+%
+%\begin{frame}[fragile]
+%Optimización de operaciones.
+%\begin{lstlisting}
+%  A B C D E F G H I
+%  -----------------
+%1   . . . . 1 2    
+%2 3         . .       
+%3 .       .     4    
+%4   . 5   .     . 6
+%5   7 .           .
+%\end{lstlisting}
+%Optimización del espacio.
+%\begin{lstlisting}
+%
+%  A B C D E F G H I
+%  -----------------
+%1   . . . . 1 2    
+%2 3         . .    
+%3 .       . 4      
+%4   . 5   . . 6    
+%5   7 .       .    
+%\end{lstlisting}
+%\end{frame}
+%
+%
+%
+%\begin{frame}
+%
+%\end{frame}
 
 
 
