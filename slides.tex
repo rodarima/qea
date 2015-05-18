@@ -19,6 +19,12 @@
 % Enlaces
 \usepackage{hyperref}
 
+% Configuración avanzada de tablas
+\usepackage{array}
+
+% Colores en tablas
+\usepackage{xcolor,colortbl}
+
 % Usar gráficos
 %\usepackage{graphicx}
 %\usepackage{caption}
@@ -56,6 +62,13 @@
 	extendedchars=false,
 	inputencoding=utf8
 }
+
+% Colores personalizados
+\definecolor{g}{gray}{0.75}
+\definecolor{b}{rgb}{0.88,1,1}
+\newcommand{\colorg}{\cellcolor{g}}
+\newcommand{\colorb}{\cellcolor{b}}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Propiedades
@@ -85,19 +98,18 @@
 \begin{itemize}
 \item Se inspira en los principios biológicos de la evolución natural.
 \item Existen múltiples vertientes con infinidad de aplicaciones.
+\begin{itemize}
+	\item Algoritmos genéticos
+	\item Programación genética
+	\item Estrategias evolutivas
+\\...
+\end{itemize}
 \end{itemize}
 
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-\frametitle{Algoritmo evolutivo general}
-
-\centering
-\includegraphics[scale=0.4]{EA_flowchart.pdf}
-
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
+\frametitle{Computación evolutiva}
 
 \begin{block}{Ventajas}
 \begin{itemize}
@@ -116,6 +128,14 @@
 
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Algoritmo evolutivo general}
+
+\centering
+\includegraphics[scale=0.4]{EA_flowchart.pdf}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Introducción a la computación cuántica (QC)}
 Objetivo: Aprovechar las propiedades de la naturaleza en una escala muy pequeña, 
@@ -244,7 +264,7 @@ diferente.
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-\frametitle{Codificación de un cromosoma}
+\frametitle{QEA: Codificación de un cromosoma}
 \begin{columns}[c]
 	\begin{column}{0.5\textwidth}
 		\centering
@@ -262,13 +282,147 @@ diferente.
 			\alpha_1	& \alpha_2	& \ldots	& \alpha_m\\
 			\beta_1		& \beta_2		& \ldots	& \beta_m\\
 		\end{bmatrix} $$
+		$$ \alpha_i, \beta_i \in \mathbb{R} $$
 		$$ |\alpha_i|^2 + |\beta_i|^2 = 1 $$
 	\end{column}
 \end{columns}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-\frametitle{}
+\frametitle{QEA: Algoritmo}
+
+\centering
+\includegraphics[scale=0.55]{QEA_flowchart.pdf}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{QEA: La puerta de rotación}
+
+\centering
+\begin{columns}[c]
+	\begin{column}{0.5\textwidth}
+		\includegraphics[width=\textwidth]{rotation}
+	\end{column}
+	\begin{column}{0.5\textwidth}
+		\begin{table}
+		\begin{tabular}{| >{$}c<{$} | >{$}c<{$} | >{$}c<{$} | >{$}r<{$} |}
+		\hline
+		x_i & b_i & f(x)>=f(b) & \Delta\theta_i \\
+		\hline \hline
+		0 & 0 & false & 0 \\
+		0 & 0 & true & 0 \\
+		0 & 1 & false & 0.01\pi \\
+		0 & 1 & true & 0 \\
+		1 & 0 & false & -0.01\pi \\
+		1 & 0 & true & 0 \\
+		1 & 1 & false & 0 \\
+		1 & 1 & true & 0 \\
+		\hline
+		\end{tabular}
+		\caption{Intervalos de rotación para el problema de la mochila}
+		\end{table}
+	\end{column}
+\end{columns}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{QEA: Operadores genéticos}{Cruce: Single-point}
+
+\centering
+\begin{tabular}{| >{$}c<{$} | >{$}c<{$} | >{$}c<{$} | >{$}c<{$} |}
+\hline
+\alpha_{11} & \alpha_{12} & \colorg\alpha_{13} & \colorg\alpha_{14} \\
+\beta_{11} & \beta_{12} & \colorg\beta_{13} & \colorg\beta_{14} \\
+\hline
+\end{tabular}
+\\
+\begin{tabular}{| >{$}c<{$} | >{$}c<{$} | >{$}c<{$} | >{$}c<{$} |}
+\hline
+\alpha_{21} & \alpha_{22} & \colorb\alpha_{23} & \colorb\alpha_{24} \\
+\beta_{21} & \beta_{22} & \colorb\beta_{23} & \colorb\beta_{24} \\
+\hline
+\end{tabular}
+
+\begin{tabular}{| >{$}c<{$} | >{$}c<{$} | >{$}c<{$} | >{$}c<{$} |}
+\hline
+\alpha_{11} & \alpha_{12} & \colorb\alpha_{23} & \colorb\alpha_{24} \\
+\beta_{11} & \beta_{12} & \colorb\beta_{23} & \colorb\beta_{24} \\
+\hline
+\end{tabular}
+\\
+\begin{tabular}{| >{$}c<{$} | >{$}c<{$} | >{$}c<{$} | >{$}c<{$} |}
+\hline
+\alpha_{21} & \alpha_{22} & \colorg\alpha_{13} & \colorg\alpha_{14} \\
+\beta_{21} & \beta_{22} & \colorg\beta_{13} & \colorg\beta_{14} \\
+\hline
+\end{tabular}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{QEA: Operadores genéticos}{Cruce: Multi-point}
+
+\centering
+\begin{tabular}{| >{$}c<{$} | >{$}c<{$} | >{$}c<{$} | >{$}c<{$} |}
+\hline
+\alpha_{11} & \colorg\alpha_{12} & \alpha_{13} & \colorg\alpha_{14} \\
+\beta_{11} & \colorg\beta_{12} & \beta_{13} & \colorg\beta_{14} \\
+\hline
+\end{tabular}
+\\
+\begin{tabular}{| >{$}c<{$} | >{$}c<{$} | >{$}c<{$} | >{$}c<{$} |}
+\hline
+\alpha_{21} & \colorb\alpha_{22} & \alpha_{23} & \colorb\alpha_{24} \\
+\beta_{21} & \colorb\beta_{22} & \beta_{23} & \colorb\beta_{24} \\
+\hline
+\end{tabular}
+
+\begin{tabular}{| >{$}c<{$} | >{$}c<{$} | >{$}c<{$} | >{$}c<{$} |}
+\hline
+\alpha_{11} & \colorb\alpha_{22} & \alpha_{13} & \colorb\alpha_{24} \\
+\beta_{11} & \colorb\beta_{22} & \beta_{13} & \colorb\beta_{24} \\
+\hline
+\end{tabular}
+\\
+\begin{tabular}{| >{$}c<{$} | >{$}c<{$} | >{$}c<{$} | >{$}c<{$} |}
+\hline
+\alpha_{21} & \colorg\alpha_{12} & \alpha_{23} & \colorg\alpha_{14} \\
+\beta_{21} & \colorg\beta_{12} & \beta_{23} & \colorg\beta_{14} \\
+\hline
+\end{tabular}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{QEA: Operadores genéticos}{Cruce: Interferencia}
+
+\centering
+\begin{tabular}{| >{$}c<{$} | >{$}c<{$} | >{$}c<{$} | >{$}c<{$} |}
+\hline
+\colorg\alpha_{11} & \colorb\alpha_{12} & \colorg\alpha_{13} & \colorb\alpha_{14} \\
+\colorg\beta_{11} & \colorb\beta_{12} & \colorg\beta_{13} & \colorb\beta_{14} \\
+\hline
+\end{tabular}
+\\
+\begin{tabular}{| >{$}c<{$} | >{$}c<{$} | >{$}c<{$} | >{$}c<{$} |}
+\hline
+\colorb\alpha_{21} & \colorg\alpha_{22} & \colorb\alpha_{23} & \colorg\alpha_{24} \\
+\colorb\beta_{21} & \colorg\beta_{22} & \colorb\beta_{23} & \colorg\beta_{24} \\
+\hline
+\end{tabular}
+
+\begin{tabular}{| >{$}c<{$} | >{$}c<{$} | >{$}c<{$} | >{$}c<{$} |}
+\hline
+\colorb\alpha_{21} & \colorb\alpha_{12} & \colorb\alpha_{23} & \colorb\alpha_{14} \\
+\colorb\beta_{21} & \colorb\beta_{12} & \colorb\beta_{23} & \colorb\beta_{14} \\
+\hline
+\end{tabular}
+\\
+\begin{tabular}{| >{$}c<{$} | >{$}c<{$} | >{$}c<{$} | >{$}c<{$} |}
+\hline
+\colorg\alpha_{11} & \colorg\alpha_{22} & \colorg\alpha_{13} & \colorg\alpha_{24} \\
+\colorg\beta_{11} & \colorg\beta_{22} & \colorg\beta_{13} & \colorg\beta_{24} \\
+\hline
+\end{tabular}
 
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
