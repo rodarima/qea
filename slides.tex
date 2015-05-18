@@ -282,7 +282,7 @@ diferente.
 			\alpha_1	& \alpha_2	& \ldots	& \alpha_m\\
 			\beta_1		& \beta_2		& \ldots	& \beta_m\\
 		\end{bmatrix} $$
-		$$ \alpha_i, \beta_i \in \mathbb{R} $$
+		$$ \alpha_i, \beta_i \in \mathbb{C} $$
 		$$ |\alpha_i|^2 + |\beta_i|^2 = 1 $$
 	\end{column}
 \end{columns}
@@ -293,6 +293,38 @@ diferente.
 
 \centering
 \includegraphics[scale=0.55]{QEA_flowchart.pdf}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{QEA: Medición}
+
+\centering
+\begin{columns}[c]
+
+\begin{column}{0.5\textwidth}
+$$ 
+q = (q_1, q_2, ..., q_n)
+$$
+$$
+q_i = \begin{bmatrix}
+			\alpha_i \\
+			\beta_i \\
+			\end{bmatrix} 
+$$
+$$ |\alpha_i|^2 + |\beta_i|^2 = 1 $$
+\end{column}
+
+\begin{column}{0.5\textwidth}
+$$
+x_i = 
+  \begin{cases}
+    0  & \quad \text{if rand}[0,1] >= |\beta_i|^2 \\
+    1  & \quad \text{if rand}[0,1] < |\beta_i|^2 \\
+  \end{cases}
+$$
+\end{column}
+\end{columns}
 
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
